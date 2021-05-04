@@ -5,13 +5,6 @@ using UnityEngine.AI;
 
 public class AIMove : MonoBehaviour
 {
-    // 마우스 클릭 지점
-    Vector3 mouseClickPoint;
-    // 이동방향
-    Vector3 dir;
-    // 이동할 거리
-    float dist;
-    // NavMeshAgent
     public NavMeshAgent navi;
 
     void Start()
@@ -21,45 +14,6 @@ public class AIMove : MonoBehaviour
 
     void Update()
     {
-        //navi.SetDestination(new Vector3(-18, 5, -1));
-        navi.SetDestination(new Vector3(-18, 5, 12));
-        // 마우스 왼쪽 클릭을 했다면
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    // 클릭한 지점에서 Ray 만든다
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
-
-        //    // ray를 쏴서 부딪혔다면 hit 정보를 담는다.
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        navi.SetDestination(hit.point);
-
-        //        //print(hit.transform.gameObject.name);
-        //        //// 그 Ray가 부딪힌 위치로 이동하고 싶다.
-        //        //// 0. 부딪힌 지점 저장
-        //        //mouseClickPoint = hit.point;
-        //        //// 1. 부딪힌 지점을 향하는 방향을 구한다.
-        //        //dir = hit.point - transform.position;
-        //        //// 2. 부딪힌 지점과 나와의 거리를 구한다.
-        //        //dist = dir.magnitude;
-        //        //// 3. 정규화
-        //        //dir.Normalize();
-        //    }
-        //}
-
-        //// 내가 이동해야할 거리가 있다면
-        //if (dist > 0)
-        //{
-        //    // 3. 그 방향으로 움직인다.
-        //    transform.position += dir * 5 * Time.deltaTime;
-
-        //    dist -= 5 * Time.deltaTime;
-
-        //    if(dist <= 0)
-        //    {
-        //        transform.position = mouseClickPoint;
-        //    }
-        //}
+        navi.SetDestination(new Vector3(-8, 5, 14));
     }
 }

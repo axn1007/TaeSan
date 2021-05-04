@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class RayManager : MonoBehaviour
 {
-    GameObject start;
-    GameObject end;
+    public GameObject[] offMeshLink;
 
     void Start()
     {
-        start = GameObject.Find("Start");
-        end = GameObject.Find("End");
-        start.SetActive(false);
-        end.SetActive(false);
+
     }
 
     void Update()
@@ -22,16 +18,22 @@ public class RayManager : MonoBehaviour
         hits = Physics.RaycastAll(
             Camera.main.transform.position,
             Camera.main.transform.forward,
-            100, layer);
+            50, layer);
         if (hits.Length == 2)
         {
-            start.SetActive(true);
-            end.SetActive(true);
+            //print("2");
+            for (int i = 0; i < offMeshLink.Length; i++)
+                offMeshLink[i].SetActive(true);
         }
-
-        foreach (RaycastHit hit in hits)
-            {
-                Debug.Log("Raycast!");
-            }
+        else if (hits.Length == 0)
+        {
+            //print("0");
+            for (int i = 0; i < offMeshLink.Length; i++)
+                offMeshLink[i].SetActive(false);
         }
+        //foreach (RaycastHit hit in hits)
+        //{
+        //    Debug.Log("Raycast!");
+        //}
     }
+}
