@@ -14,6 +14,6 @@ public class AIMove : MonoBehaviour
 
     void Update()
     {
-        navi.SetDestination(new Vector3(-8, 5, 14));
+        navi.SetDestination(new Vector3(5, 10, 14));
     }
 }
