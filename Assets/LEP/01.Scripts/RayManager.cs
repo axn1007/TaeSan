@@ -30,8 +30,8 @@ public class RayManager : MonoBehaviour
         }
 
         foreach (RaycastHit hit in hits)
-        {
-            Debug.Log("Raycast!");
+            {
+                Debug.Log("Raycast!");
+            }
         }
     }
-}
