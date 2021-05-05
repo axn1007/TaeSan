@@ -18,7 +18,7 @@ public class AIMove : MonoBehaviour
     {
         navi.SetDestination(wayPointBox[wpIndex].transform.position);
         float distance = Vector3.Distance(transform.position, wayPointBox[wpIndex].transform.position);
-        if (distance < 0.5)
+        if (distance < 1)
         {
             if (wpIndex < wayPointBox.Length - 1) wpIndex++;
         }
