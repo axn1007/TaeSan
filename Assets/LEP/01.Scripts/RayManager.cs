@@ -18,7 +18,7 @@ public class RayManager : MonoBehaviour
         hits = Physics.RaycastAll(
             Camera.main.transform.position,
             Camera.main.transform.forward,
-            50, layer);
+            25, layer);
         if (hits.Length == 2)
         {
             //print("2");
