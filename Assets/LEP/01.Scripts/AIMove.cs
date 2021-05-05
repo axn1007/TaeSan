@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class AIMove : MonoBehaviour
 {
+    public GameObject[] wayPointBox;
     public NavMeshAgent navi;
+    int wpIndex;
 
     void Start()
     {
@@ -14,6 +16,11 @@ public class AIMove : MonoBehaviour
 
     void Update()
     {
-        navi.SetDestination(new Vector3(19, 8, 14));
+        navi.SetDestination(wayPointBox[wpIndex].transform.position);
+        float distance = Vector3.Distance(transform.position, wayPointBox[wpIndex].transform.position);
+        if (distance < 0.5)
+        {
+            if (wpIndex < wayPointBox.Length - 1) wpIndex++;
+        }
     }
 }
