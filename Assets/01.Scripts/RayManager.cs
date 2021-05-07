@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RayManager : MonoBehaviour
 {
-    public GameObject[] offMeshLink;
+    AIMove aiMove;
 
     void Start()
     {
-
+        aiMove = GameObject.Find("AI").GetComponent<AIMove>();
     }
 
     void Update()
@@ -21,15 +21,13 @@ public class RayManager : MonoBehaviour
             25, layer);
         if (hits.Length == 2)
         {
+            if (aiMove.wpIndex < aiMove.wayPointBox.Length - 1) aiMove.wpIndex++;
+            Destroy(hits[0].transform.gameObject);
             //print("2");
-            for (int i = 0; i < offMeshLink.Length; i++)
-                offMeshLink[i].SetActive(true);
         }
-        else if (hits.Length == 0)
+        else
         {
             //print("0");
-            for (int i = 0; i < offMeshLink.Length; i++)
-                offMeshLink[i].SetActive(false);
         }
         //foreach (RaycastHit hit in hits)
         //{

@@ -7,7 +7,7 @@ public class AIMove : MonoBehaviour
 {
     public GameObject[] wayPointBox;
     public NavMeshAgent navi;
-    int wpIndex;
+    public int wpIndex;
 
     void Start()
     {
@@ -19,9 +19,9 @@ public class AIMove : MonoBehaviour
         navi.SetDestination(wayPointBox[wpIndex].transform.position);
         float distance = Vector3.Distance(transform.position, wayPointBox[wpIndex].transform.position);
         print(wpIndex);
-        if (distance < 1)
-        {
-            if (wpIndex < wayPointBox.Length - 1) wpIndex++;
-        }
+        //if (distance < 1)
+        //{
+        //    if (wpIndex < wayPointBox.Length - 1) wpIndex++;
+        //}
     }
 }

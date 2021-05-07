@@ -12,7 +12,7 @@ public class GroundMove : MonoBehaviour
 
     void Update()
     {
-        transform.position += dir * 2 * Time.deltaTime;
+        transform.position += dir * 2.5f * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
