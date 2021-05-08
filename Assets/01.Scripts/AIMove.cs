@@ -17,7 +17,7 @@ public class AIMove : MonoBehaviour
     enum AIState
     {
         Run,
-        Idle
+        Idle,
     }
 
     AIState state;
@@ -37,11 +37,6 @@ public class AIMove : MonoBehaviour
 
     void Update()
     {
-        //if (distance < 1)
-        //{
-        //    if (wpIndex < wayPointBox.Length - 1) wpIndex++;
-        //}
-
         // 현재 상태에 따라 기능 수행
         switch (state)
         {
@@ -54,17 +49,17 @@ public class AIMove : MonoBehaviour
             default:
                 break;
         }
+        print(wpIndex);
     }
 
     void Run()
     {
         print("Run!!");
         navi.SetDestination(wayPointBox[wpIndex].transform.position);
-        print(wpIndex);
         float dist = Vector3.Distance(
             transform.position, wayPointBox[wpIndex].transform.position);
         // 만약 목표지점과 가까워지면
-        if(dist < 1)
+        if (dist < 1)
         {
             print("Access!!");
             state = AIState.Idle;
