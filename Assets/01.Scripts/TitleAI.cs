@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TitleMan : MonoBehaviour
+public class TitleAI : MonoBehaviour
 {
     public GameObject goalBox;
     NavMeshAgent navi;
