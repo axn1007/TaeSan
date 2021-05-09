@@ -13,7 +13,7 @@ public class TitleText : MonoBehaviour
     {
         if (standby == true)
         {
-            alpha += 0.2f * Time.deltaTime;
+            alpha += 0.5f * Time.deltaTime;
             titleText.color = new Color(0.0f, 0.0f, 0.0f, alpha);
         }
     }
