@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KSY/00.Scenes/GameScene.unity
-    guid: 6aed2fddf2c794449a716400a28afbd4
+    path: Assets/LEP/00.Scenes/TitleScene.unity
+    guid: 36900046bc45a924c9faba2a8af96d99
+  - enabled: 1
+    path: Assets/LEP/00.Scenes/GameScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
