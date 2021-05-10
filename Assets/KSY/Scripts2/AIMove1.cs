@@ -80,6 +80,7 @@ public class AIMove1 : MonoBehaviour
             leave.SetActive(true);
             smoke.SetActive(true);
             Destroy(rayMana.hits[0].transform.gameObject);
+            Destroy(rayMana.hits[1].transform.gameObject);
         }
     }
 }
