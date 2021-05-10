@@ -21,13 +21,15 @@ public class AIPosManager : MonoBehaviour
     {
         if (rayManager.hits.Length == 2)
         {
-            //if ()
-            //{
-            //    aiPoss[posIndex].SetActive(true);
-            //    if (posIndex < aiPoss.Length - 1) posIndex++;
-            //    Destroy(rayManager.hits[0].transform.gameObject);
-            //    Destroy(rayManager.hits[1].transform.gameObject);
-            //}
+            if (rayManager.hits[0].transform.gameObject == rayTargets[posIndex].gameObject ||
+                rayManager.hits[1].transform.gameObject == rayTargets[posIndex].gameObject)
+            {
+                aiPoss[posIndex].SetActive(false);
+                if (posIndex < aiPoss.Length - 1) posIndex++;
+                aiPoss[posIndex].SetActive(true);
+                Destroy(rayManager.hits[0].transform.gameObject);
+                Destroy(rayManager.hits[1].transform.gameObject);
+            }
         }
     }
 }
