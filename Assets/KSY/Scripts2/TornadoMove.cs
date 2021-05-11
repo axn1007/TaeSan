@@ -9,8 +9,9 @@ public class TornadoMove : MonoBehaviour
     public GameObject Tornado;
     public GameObject Aii;
     Vector3 sp;
-    public Vector3 dp = new Vector3(-12, 9, 5);
+    public Vector3 dp = new Vector3(-12, 10, 5);
     public float speed = 1f;
+    AIMove1 aiMove1;
     public GameObject AI;
 
     RayMana rayMana;
@@ -23,6 +24,9 @@ public class TornadoMove : MonoBehaviour
         Aii.SetActive(false);
         // RayManager 스크립트 가져오기
         rayMana = GameObject.Find("RayMana").GetComponent<RayMana>();
+
+        aiMove1 = GameObject.Find("AI").GetComponent<AIMove1>();
+        
 
         //토네이도 현재 위치
         sp = Tornado.transform.position;
@@ -51,14 +55,15 @@ public class TornadoMove : MonoBehaviour
             //목표지점까지 이동
             transform.position = Vector3.Slerp(transform.position, dp, speed);
             //도착하면
-            if (Vector3.Distance(Aii.transform.position, dp) < 0.1)
+            if (Vector3.Distance(Aii.transform.position, dp) < 1)
             {
                 //둘다 비활
                 Tornado.SetActive(false);
                 Aii.SetActive(false);
                 //원래 AI는 위치 변경
-                AI.SetActive(true);
                 AI.transform.position = dp;
+                AI.SetActive(true);
+                aiMove1.wpIndex++;
             }
         }
     }
