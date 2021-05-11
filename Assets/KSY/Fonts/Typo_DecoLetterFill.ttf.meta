@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 86f872b7756bc2a4f92ce3e5d336e0d1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Typo_Deco
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f9c2c82487db71343ac967834099a499, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

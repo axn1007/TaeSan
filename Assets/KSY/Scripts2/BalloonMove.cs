@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BalloonMove : MonoBehaviour
 {
-    GameObject Balloon;
+    
     Vector3 startPos;
     public Vector3 destPos = new Vector3(15, 15, -3);
     public float speed = 0.005f;
 
     void Start()
     {
-        startPos = Balloon.transform.position;
+        startPos = transform.position;
         destPos = this.gameObject.transform.position;
     }
         
