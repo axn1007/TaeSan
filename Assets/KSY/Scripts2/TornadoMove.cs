@@ -51,7 +51,7 @@ public class TornadoMove : MonoBehaviour
             //목표지점까지 이동
             transform.position = Vector3.Slerp(transform.position, dp, speed);
             //도착하면
-            if (Vector3.Distance(Aii.transform.position, dp) < 0.1)
+            if (Vector3.Distance(Aii.transform.position, dp) < 1)
             {
                 //둘다 비활
                 Tornado.SetActive(false);
