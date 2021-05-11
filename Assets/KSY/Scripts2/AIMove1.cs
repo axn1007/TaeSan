@@ -7,21 +7,21 @@ public class AIMove1 : MonoBehaviour
 {
     public GameObject[] wayPointBox;
     public NavMeshAgent navi;
-    int wpIndex;
+    public int wpIndex;
     RayMana rayMana;
 
     // Player Effect
     public GameObject leave;
     public GameObject smoke;
 
-    enum AIState
+    public enum AIState
     {
         Run,
         Idle,
     }
 
-    AIState state;
-    Animator anim;
+    public AIState state;
+    public Animator anim;
 
     void Start()
     {
@@ -80,6 +80,7 @@ public class AIMove1 : MonoBehaviour
             leave.SetActive(true);
             smoke.SetActive(true);
             Destroy(rayMana.hits[0].transform.gameObject);
+            Destroy(rayMana.hits[1].transform.gameObject);
         }
     }
 }
