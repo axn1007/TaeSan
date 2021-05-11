@@ -5,7 +5,9 @@ using UnityEngine;
 public class ObjActivity : MonoBehaviour
 {
     public GameObject tornado;
+    public GameObject balloon;
     public GameObject aiDummy;
+    public Transform balloonDestPos;
     public float speed;
     RayManager rayManager;
     GameObject ai;
@@ -31,7 +33,8 @@ public class ObjActivity : MonoBehaviour
         if (rayManager.hits.Length == 2)
         {
             if (rayManager.hits[0].transform.CompareTag("TornadoBtn") &&
-            rayManager.hits[1].transform.CompareTag("TornadoBtn"))
+            rayManager.hits[1].transform.CompareTag("TornadoBtn")&&
+            mainAi.wpIndex == 4)
             {
                 // 토네이도 활성화
                 tornado.SetActive(true);
@@ -59,9 +62,21 @@ public class ObjActivity : MonoBehaviour
                 // 원래 AI는 위치 변경
                 ai.transform.position = mainAi.wayPointBox[4].transform.position;
                 ai.SetActive(true);
-                mainAi.state = MainAI.AIState.Run;
-                mainAi.anim.SetTrigger("Run");
-                mainAi.wpIndex++;
+            }
+        }
+
+        if (Vector3.Distance(ai.transform.position,
+            mainAi.wayPointBox[5].transform.position) < 1)
+        {
+            ai.SetActive(false);
+            float balloonDist =
+                Vector3.Distance(balloon.transform.position, balloonDestPos.position);
+            balloon.transform.position =
+                Vector3.Slerp(balloon.transform.position, balloonDestPos.position, speed);
+            if (balloonDist < 1)
+            {
+                ai.transform.position = balloonDestPos.position;
+                ai.SetActive(true);
             }
         }
     }
