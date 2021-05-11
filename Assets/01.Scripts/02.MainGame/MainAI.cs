@@ -7,25 +7,25 @@ public class MainAI : MonoBehaviour
 {
     public GameObject[] rayTarget;
     public GameObject[] wayPointBox;
-    
+
     // Player Effect
     public GameObject leave;
     public GameObject smoke;
-    
+
     RayManager rayManager;
-    
+
     [HideInInspector]
     public NavMeshAgent navi;
     public int wpIndex;
 
-    enum AIState
+    public enum AIState
     {
         Run,
         Idle,
     }
 
-    AIState state;
-    Animator anim;
+    public AIState state;
+    public Animator anim;
 
     void Start()
     {
@@ -78,13 +78,17 @@ public class MainAI : MonoBehaviour
         print("Stop!!");
         if (rayManager.hits.Length == 2)
         {
-            if (wpIndex < wayPointBox.Length - 1) wpIndex++;
-            state = AIState.Run;
-            anim.SetTrigger("Run");
-            leave.SetActive(true);
-            smoke.SetActive(true);
-            Destroy(rayManager.hits[0].transform.gameObject);
-            Destroy(rayManager.hits[1].transform.gameObject);
+            if (rayManager.hits[0].transform.gameObject == rayTarget[wpIndex].gameObject ||
+                rayManager.hits[1].transform.gameObject == rayTarget[wpIndex].gameObject)
+            {
+                if (wpIndex < wayPointBox.Length - 1) wpIndex++;
+                state = AIState.Run;
+                anim.SetTrigger("Run");
+                leave.SetActive(true);
+                smoke.SetActive(true);
+                Destroy(rayManager.hits[0].transform.gameObject);
+                Destroy(rayManager.hits[1].transform.gameObject);
+            }
         }
     }
 }

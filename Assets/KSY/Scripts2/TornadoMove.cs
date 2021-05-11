@@ -11,10 +11,10 @@ public class TornadoMove : MonoBehaviour
     Vector3 sp;
     public Vector3 dp = new Vector3(-12, 10, 5);
     public float speed = 1f;
-    AIMove1 aiMove1;
+    MainAI aiMove;
     public GameObject AI;
 
-    RayMana rayMana;
+    RayManager rayManager;
 
     void Start()
     {
@@ -23,9 +23,9 @@ public class TornadoMove : MonoBehaviour
         //AI 비활성화
         Aii.SetActive(false);
         // RayManager 스크립트 가져오기
-        rayMana = GameObject.Find("RayMana").GetComponent<RayMana>();
+        rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
 
-        aiMove1 = GameObject.Find("AI").GetComponent<AIMove1>();
+        aiMove = GameObject.Find("AI").GetComponent<MainAI>();
         
 
         //토네이도 현재 위치
@@ -36,10 +36,10 @@ public class TornadoMove : MonoBehaviour
     void Update()
     {
         //만약에 Ray가 통과되면 활성화
-        if (rayMana.hits.Length == 2)
+        if (rayManager.hits.Length == 2)
         {
-            if (rayMana.hits[0].transform.gameObject.CompareTag("RayTarget30") ||
-            rayMana.hits[1].transform.gameObject.CompareTag("RayTarget30"))
+            if (rayManager.hits[0].transform.gameObject.CompareTag("RayTarget30") ||
+            rayManager.hits[1].transform.gameObject.CompareTag("RayTarget30"))
             {
                 //토네이도 활성화
                 Tornado.SetActive(true);
@@ -63,7 +63,7 @@ public class TornadoMove : MonoBehaviour
                 //원래 AI는 위치 변경
                 AI.transform.position = dp;
                 AI.SetActive(true);
-                aiMove1.wpIndex++;
+                aiMove.wpIndex++;
             }
         }
     }

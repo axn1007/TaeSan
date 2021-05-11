@@ -6,11 +6,11 @@ public class AIPosManager : MonoBehaviour
 {
     public GameObject[] aiPoss;
     public GameObject[] rayTargets;
-    RayMana rayManager;
+    RayManager rayManager;
     int posIndex;
     void Start()
     {
-        rayManager = GameObject.Find("RayMana").GetComponent<RayMana>();
+        rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
         for (int i = 0; i < aiPoss.Length; i++)
         {
             aiPoss[i].SetActive(false);
