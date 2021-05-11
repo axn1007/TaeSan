@@ -7,7 +7,7 @@ public class AIMove1 : MonoBehaviour
 {
     public GameObject[] wayPointBox;
     public NavMeshAgent navi;
-    int wpIndex;
+    public int wpIndex;
     RayMana rayMana;
 
     // Player Effect
