@@ -14,14 +14,14 @@ public class AIMove1 : MonoBehaviour
     public GameObject leave;
     public GameObject smoke;
 
-    enum AIState
+    public enum AIState
     {
         Run,
         Idle,
     }
 
-    AIState state;
-    Animator anim;
+    public AIState state;
+    public Animator anim;
 
     void Start()
     {
@@ -74,6 +74,8 @@ public class AIMove1 : MonoBehaviour
         print("Stop!!");
         if (rayMana.hits.Length == 2)
         {
+            if (rayMana.hits[0].transform.gameObject.CompareTag("RayTarget30") ||
+            rayMana.hits[1].transform.gameObject.CompareTag("RayTarget30")) return;
             if (wpIndex < wayPointBox.Length - 1) wpIndex++;
             state = AIState.Run;
             anim.SetTrigger("Run");
