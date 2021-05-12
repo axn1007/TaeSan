@@ -6,28 +6,50 @@ public class AIPosManager : MonoBehaviour
 {
     public GameObject[] aiPoss;
     public GameObject[] rayTargets;
+    public Transform overbridgeDestPos;
     RayManager rayManager;
+    GameObject ai;
     int posIndex;
+    MainAI mainAi;
     void Start()
     {
+        ai = GameObject.Find("AI");
+        mainAi = ai.GetComponent<MainAI>();
         rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
         for (int i = 0; i < aiPoss.Length; i++)
         {
             aiPoss[i].SetActive(false);
         }
-        aiPoss[0].SetActive(true);
+        for (int i = 0; i < rayTargets.Length; i++)
+        {
+            rayTargets[i].SetActive(false);
+        }
     }
 
     void Update()
     {
+        rayTargets[posIndex].SetActive(true);
+
         if (rayManager.hits.Length == 2)
         {
             if (rayManager.hits[0].transform.gameObject == rayTargets[posIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTargets[posIndex].gameObject)
             {
-                aiPoss[posIndex].SetActive(false);
-                if (posIndex < aiPoss.Length - 1) posIndex++;
-                aiPoss[posIndex].SetActive(true);
+                if (posIndex == 0) ai.SetActive(false);
+                else if (posIndex >= aiPoss.Length - 1)
+                {
+                    ai.transform.position = overbridgeDestPos.position;
+                    ai.SetActive(true);
+                    mainAi.state = MainAI.AIState.Run;
+                }
+
+                if (posIndex < aiPoss.Length - 1)
+                {
+                    aiPoss[posIndex].SetActive(false);
+                    rayTargets[posIndex].SetActive(false);
+                    posIndex++;
+                    aiPoss[posIndex].SetActive(true);
+                }
             }
         }
     }

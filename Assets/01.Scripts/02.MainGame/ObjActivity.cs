@@ -6,9 +6,14 @@ public class ObjActivity : MonoBehaviour
 {
     public GameObject tornado;
     public GameObject balloon;
-    public GameObject aiDummy;
+    public GameObject torAiDummy;
+    public GameObject ballAiDummy;
+    public Transform balloonOriginPos;
     public Transform balloonDestPos;
-    public float speed;
+    public Transform overbridgeOriginPos;
+    public Transform overbridgeDestPos;
+    public float tornadoSpeed;
+    public float balloonSpeed;
     RayManager rayManager;
     GameObject ai;
     MainAI mainAi;
@@ -18,7 +23,8 @@ public class ObjActivity : MonoBehaviour
         // 토네이도 비활성화
         tornado.SetActive(false);
         // AIDummy 비활성화
-        aiDummy.SetActive(false);
+        torAiDummy.SetActive(false);
+        ballAiDummy.SetActive(false);
         // RayManager 접근
         rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
         // AI 접근
@@ -33,32 +39,32 @@ public class ObjActivity : MonoBehaviour
         if (rayManager.hits.Length == 2)
         {
             if (rayManager.hits[0].transform.CompareTag("TornadoBtn") &&
-            rayManager.hits[1].transform.CompareTag("TornadoBtn")&&
+            rayManager.hits[1].transform.CompareTag("TornadoBtn") &&
             mainAi.wpIndex == 4)
             {
                 // 토네이도 활성화
                 tornado.SetActive(true);
                 // AIDummy 활성화
-                aiDummy.SetActive(true);
+                torAiDummy.SetActive(true);
                 // AI 비활성화
                 ai.SetActive(false);
             }
         }
 
-        if (aiDummy.activeSelf == true)
+        if (torAiDummy.activeSelf == true)
         {
             // 목표지점까지 이동
             tornado.transform.position = Vector3.Slerp(
                 tornado.transform.position,
                 mainAi.wayPointBox[4].transform.position,
-                speed);
+                tornadoSpeed);
             // 도착하면
-            if (Vector3.Distance(aiDummy.transform.position,
+            if (Vector3.Distance(torAiDummy.transform.position,
                 mainAi.wayPointBox[4].transform.position) < 1)
             {
                 // 둘 다 비활성
                 tornado.SetActive(false);
-                aiDummy.SetActive(false);
+                torAiDummy.SetActive(false);
                 // 원래 AI는 위치 변경
                 ai.transform.position = mainAi.wayPointBox[4].transform.position;
                 ai.SetActive(true);
@@ -66,17 +72,21 @@ public class ObjActivity : MonoBehaviour
         }
 
         if (Vector3.Distance(ai.transform.position,
-            mainAi.wayPointBox[5].transform.position) < 1)
+            balloonOriginPos.position) < 1)
         {
+            ballAiDummy.SetActive(true);
             ai.SetActive(false);
             float balloonDist =
                 Vector3.Distance(balloon.transform.position, balloonDestPos.position);
             balloon.transform.position =
-                Vector3.Slerp(balloon.transform.position, balloonDestPos.position, speed);
-            if (balloonDist < 1)
+                Vector3.Slerp(balloon.transform.position, balloonDestPos.position, balloonSpeed);
+            if (balloonDist < 1 && ballAiDummy.activeSelf == true)
             {
-                ai.transform.position = balloonDestPos.position;
+                mainAi.wayPointBox[5].transform.position = overbridgeOriginPos.position;
+                ai.transform.position = balloon.transform.position;
+                ballAiDummy.SetActive(false);
                 ai.SetActive(true);
+                mainAi.state = MainAI.AIState.Run;
             }
         }
     }
