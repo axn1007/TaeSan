@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - RayTarget30
+  - TornadoBtn
+  - BalloonBtn
   layers:
   - Default
   - TransparentFX
