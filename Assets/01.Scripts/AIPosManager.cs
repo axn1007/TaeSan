@@ -36,12 +36,6 @@ public class AIPosManager : MonoBehaviour
                 rayManager.hits[1].transform.gameObject == rayTargets[posIndex].gameObject)
             {
                 if (posIndex == 0) ai.SetActive(false);
-                else if (posIndex >= aiPoss.Length - 1)
-                {
-                    ai.transform.position = overbridgeDestPos.position;
-                    ai.SetActive(true);
-                    mainAi.state = MainAI.AIState.Run;
-                }
 
                 if (posIndex < aiPoss.Length - 1)
                 {
@@ -49,6 +43,15 @@ public class AIPosManager : MonoBehaviour
                     rayTargets[posIndex].SetActive(false);
                     posIndex++;
                     aiPoss[posIndex].SetActive(true);
+                }
+
+                if (aiPoss[aiPoss.Length - 1].activeSelf == true)
+                {
+                    ai.transform.position = overbridgeDestPos.position;
+                    ai.SetActive(true);
+                    mainAi.wpIndex++;
+                    mainAi.state = MainAI.AIState.Run;
+                    aiPoss[aiPoss.Length - 1].SetActive(false);
                 }
             }
         }
