@@ -43,8 +43,7 @@ public class AIPosManager : MonoBehaviour
 
         if (rayManager.hits.Length == 2)
         {
-            if (rayManager.hits[0].transform.gameObject == mainAi.rayTarget[1].gameObject ||
-                rayManager.hits[1].transform.gameObject == mainAi.rayTarget[1].gameObject)
+            if (mainAi.wpIndex == 2 && mainAi.state == MainAI.AIState.Run)
             {
                 moveDummy.SetActive(true);
                 ai.SetActive(false);

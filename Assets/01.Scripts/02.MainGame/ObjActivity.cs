@@ -40,12 +40,18 @@ public class ObjActivity : MonoBehaviour
         {
             if (rayManager.hits[0].transform.CompareTag("TornadoBtn") &&
             rayManager.hits[1].transform.CompareTag("TornadoBtn") &&
-            mainAi.wpIndex == 4)
+            mainAi.wpIndex == 3 && mainAi.state == MainAI.AIState.Idle)
             {
                 // 토네이도 활성화
                 tornado.SetActive(true);
                 // AIDummy 활성화
                 torAiDummy.SetActive(true);
+                
+                mainAi.state = MainAI.AIState.Run;
+                mainAi.wpIndex++;
+                Destroy(rayManager.hits[0].transform.gameObject);
+                Destroy(rayManager.hits[1].transform.gameObject);
+                
                 // AI 비활성화
                 ai.SetActive(false);
             }

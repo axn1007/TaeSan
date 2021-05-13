@@ -81,13 +81,13 @@ public class MainAI : MonoBehaviour
             if (rayManager.hits[0].transform.gameObject == rayTarget[wpIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTarget[wpIndex].gameObject)
             {
-                if (wpIndex < wayPointBox.Length - 1) wpIndex++;
                 state = AIState.Run;
                 anim.SetTrigger("Run");
                 leave.SetActive(true);
                 smoke.SetActive(true);
                 Destroy(rayManager.hits[0].transform.gameObject);
                 Destroy(rayManager.hits[1].transform.gameObject);
+                if (wpIndex < wayPointBox.Length - 1) wpIndex++;
             }
         }
     }
