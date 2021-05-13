@@ -16,7 +16,9 @@ public class ObjCollOn : MonoBehaviour
 
     void Update()
     {
-        float dist = Vector3.Distance(ai.transform.position, mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
+        float dist = Vector3.Distance(
+            ai.transform.position,
+            mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
 
         if(dist < 1)
         {
