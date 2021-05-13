@@ -6,14 +6,36 @@ public class AllChildrenColOn : MonoBehaviour
 {
     GameObject ai;
     MainAI mainAi;
-    MeshCollider[] allChildren;
+    BoxCollider[] allBoxColChildren;
+    SphereCollider[] allSphColChildren;
+    CapsuleCollider[] allCapColChildren;
+    MeshCollider[] allMeshColChildren;
     void Start()
     {
         ai = GameObject.Find("AI");
         mainAi = ai.GetComponent<MainAI>();
 
-        allChildren = GetComponentsInChildren<MeshCollider>();
-        foreach (MeshCollider child in allChildren)
+        allBoxColChildren = GetComponentsInChildren<BoxCollider>();
+        allSphColChildren = GetComponentsInChildren<SphereCollider>();
+        allCapColChildren = GetComponentsInChildren<CapsuleCollider>();
+        allMeshColChildren = GetComponentsInChildren<MeshCollider>();
+
+        foreach (BoxCollider child in allBoxColChildren)
+        {
+            child.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        foreach (SphereCollider child in allSphColChildren)
+        {
+            child.gameObject.GetComponent<SphereCollider>().enabled = false;
+        }
+
+        foreach (CapsuleCollider child in allCapColChildren)
+        {
+            child.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        }
+
+        foreach (MeshCollider child in allMeshColChildren)
         {
             child.gameObject.GetComponent<MeshCollider>().enabled = false;
         }
@@ -27,7 +49,22 @@ public class AllChildrenColOn : MonoBehaviour
 
         if (dist < 1)
         {
-            foreach (MeshCollider child in allChildren)
+            foreach (BoxCollider child in allBoxColChildren)
+            {
+                child.gameObject.GetComponent<BoxCollider>().enabled = true;
+            }
+
+            foreach (SphereCollider child in allSphColChildren)
+            {
+                child.gameObject.GetComponent<SphereCollider>().enabled = true;
+            }
+
+            foreach (CapsuleCollider child in allCapColChildren)
+            {
+                child.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+            }
+
+            foreach (MeshCollider child in allMeshColChildren)
             {
                 child.gameObject.GetComponent<MeshCollider>().enabled = true;
             }
