@@ -11,7 +11,7 @@ public class ObjCollOn : MonoBehaviour
     {
         ai = GameObject.Find("AI");
         mainAi = ai.GetComponent<MainAI>();
-        GetComponent<MeshCollider>().enabled = false;
+        GetComponentInChildren<MeshCollider>().enabled = false;
     }
 
     void Update()
