@@ -13,19 +13,17 @@ public class Timer : MonoBehaviour
     float hour;
     float currTime;
     bool isGameClear;
-    
+    public GameObject stageClearDummy;
+
 
     void Start()
     {
-        //ResetTimer();
-        //textTimer.gameObject.SetActive(false);
+        
     }
 
     void Update()
     {
-        //if (isEnded)
-        //    return;
-        //CheckTimer();
+        
         sec = (int)(Time.time - currTime);
         if(sec > 59)
         {
@@ -40,6 +38,27 @@ public class Timer : MonoBehaviour
             }
         }
         timerText.text = string.Format("Time : {0:00}:{1:00}:{2:00}", hour, min, sec);
+
+        TimerStop();
+        SaveTime();
+    }
+
+   
+    void TimerStop()
+    {
+        //float dist = Vector3.Distance(ai.transform.position, mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
+       
+        //AI가 Clear지점에 도착하면
+        if (stageClearDummy.activeSelf == true)
+        {
+            //타이머 멈추기
+            GetComponent<Timer>().enabled = false;
+        }
+    }
+
+    public void SaveTime()
+    {
+        PlayerPrefs.SetFloat("TimerStop", time);
     }
 
 }
