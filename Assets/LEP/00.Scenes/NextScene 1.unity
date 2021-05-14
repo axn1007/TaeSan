@@ -1337,7 +1337,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -13107,7 +13107,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -18152,7 +18152,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -24060,7 +24060,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -30274,7 +30274,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -37492,7 +37492,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -45541,7 +45541,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -52618,7 +52618,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -58788,7 +58788,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -64361,7 +64361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3567395477989615067, guid: 9e0a093a368ee4f10b7c6c056f5f7077, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3567395477989615067, guid: 9e0a093a368ee4f10b7c6c056f5f7077, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -66682,7 +66682,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -73189,7 +73189,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -84899,7 +84899,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -90507,7 +90507,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -95989,7 +95989,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -102948,7 +102948,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.0025
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
