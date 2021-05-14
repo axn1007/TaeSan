@@ -6,9 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KSY/00.Scenes/NextScene.unity
-    guid: bf8c5dea76594f24eaf303912538e96a
-  - enabled: 1
-    path: Assets/KSY/00.Scenes/ClearScene.unity
-    guid: 129ca1548b49b7941a22ba09a3823346
-  m_configObjects: {}
+    path: Assets/LEP/00.Scenes/NextScene 1.unity
+    guid: 3f65d14bbd420964ca7a99220c2974ed
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: ea60d10f4ad80554ab2af635022200cd, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 910b47e25266dfd4fa1da6d722e34a13, type: 2}
