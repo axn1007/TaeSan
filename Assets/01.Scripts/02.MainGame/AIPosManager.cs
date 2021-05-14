@@ -70,6 +70,8 @@ public class AIPosManager : MonoBehaviour
                 {
                     ai.transform.position = overbridgeDestPos.position;
                     ai.SetActive(true);
+                    mainAi.leave.SetActive(true);
+                    mainAi.smoke.SetActive(true);
                     mainAi.wpIndex++;
                     mainAi.state = MainAI.AIState.Run;
                     aiPoss[aiPoss.Length - 1].SetActive(false);

@@ -111,6 +111,8 @@ public class ObjActivity : MonoBehaviour
                 ai.transform.position = balloon.transform.position;
                 ballAiDummy.SetActive(false);
                 ai.SetActive(true);
+                mainAi.leave.SetActive(true);
+                mainAi.smoke.SetActive(true);
                 mainAi.state = MainAI.AIState.Run;
                 balloonToMidDest = true;
             }
