@@ -10,20 +10,24 @@ public class AIPosManager : MonoBehaviour
     public GameObject stageClearDummy;
     public Transform moveDestPos;
     public Transform overbridgeDestPos;
+    bool balloonFinalEsc;
+    ObjActivity objAct;
     RayManager rayManager;
-    GameObject ringMove;
+    //GameObject ringMove;
     GameObject ai;
     public int posIndex;
     MainAI mainAi;
     void Start()
     {
+        objAct = GameObject.Find("ObjActivity").GetComponent<ObjActivity>();
+
         ai = GameObject.Find("AI");
         mainAi = ai.GetComponent<MainAI>();
 
         moveDummy.SetActive(false);
         stageClearDummy.SetActive(false);
 
-        ringMove = GameObject.Find("RingMove");
+        //ringMove = GameObject.Find("RingMove");
 
         rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
 
@@ -86,7 +90,14 @@ public class AIPosManager : MonoBehaviour
         {
             stageClearDummy.SetActive(true);
             ai.SetActive(false);
-            ringMove.GetComponent<GroundMove>().enabled = true;
+            //ringMove.GetComponent<GroundMove>().enabled = true;
+            balloonFinalEsc = true;
+        }
+
+        if (balloonFinalEsc)
+        {
+            objAct.balloon.transform.position +=
+                Vector3.up * 10 * Time.deltaTime;
         }
     }
 }
