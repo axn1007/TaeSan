@@ -10,6 +10,7 @@ public class AIPosManager : MonoBehaviour
     public GameObject stageClearDummy;
     public Transform moveDestPos;
     public Transform overbridgeDestPos;
+    public float balloonFinalSpd;
     bool balloonFinalEsc;
     ObjActivity objAct;
     RayManager rayManager;
@@ -99,7 +100,7 @@ public class AIPosManager : MonoBehaviour
         if (balloonFinalEsc)
         {
             objAct.balloon.transform.position +=
-                Vector3.up * 10 * Time.deltaTime;
+                Vector3.up * balloonFinalSpd * Time.deltaTime;
         }
     }
 }

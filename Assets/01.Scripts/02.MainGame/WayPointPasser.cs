@@ -36,17 +36,19 @@ public class WayPointPasser : MonoBehaviour
                     aiPosMng.posIndex++;
                     aiPosMng.aiPoss[aiPosMng.posIndex].SetActive(true);
                 }
-                
+
                 if (aiPosMng.aiPoss[aiPosMng.aiPoss.Length - 1].activeSelf == true)
                 {
                     ai.transform.position = aiPosMng.overbridgeDestPos.position;
                     ai.SetActive(true);
+                    mainAi.leave.SetActive(true);
+                    mainAi.smoke.SetActive(true);
                     mainAi.wpIndex++;
                     mainAi.state = MainAI.AIState.Run;
                     aiPosMng.aiPoss[aiPosMng.aiPoss.Length - 1].SetActive(false);
                 }
             }
-            
+
             else if (mainAi.wpIndex == 3 && mainAi.state == MainAI.AIState.Idle && ai.activeSelf == true)
             {
                 mainAi.leave.SetActive(true);
@@ -60,8 +62,9 @@ public class WayPointPasser : MonoBehaviour
                 mainAi.anim.SetTrigger("Run");
                 mainAi.state = MainAI.AIState.Run;
                 ai.SetActive(false);
+                objAct.tornadoToMidDest = true;
             }
-            
+
             else if (mainAi.state == MainAI.AIState.Idle && ai.activeSelf == true)
             {
                 mainAi.leave.SetActive(true);

@@ -10,9 +10,12 @@ public class ObjActivity : MonoBehaviour
     public GameObject ballAiDummy;
     public GameObject branch;
     public GameObject bush;
+    public bool tornadoToMidDest;
+    bool tornadoToFinalDest;
     bool balloonToFinalDest;
     bool balloonToMidDest;
     bool bushGrow;
+    public Transform tornadoMidPos;
     public Transform balloonOriginPos;
     public Transform balloonDestPos;
     public Transform balloonMidPos;
@@ -62,6 +65,7 @@ public class ObjActivity : MonoBehaviour
 
                 // AI 비활성화
                 ai.SetActive(false);
+                tornadoToMidDest = true;
             }
 
             else if (rayManager.hits[0].transform.CompareTag("BushBtn") &&
@@ -76,14 +80,24 @@ public class ObjActivity : MonoBehaviour
             }
         }
 
-        if (torAiDummy.activeSelf == true)
+        if (tornadoToMidDest)
         {
-            // 목표지점까지 이동
+            // 도착하면 (중간지점)
+            if (Vector3.Distance(torAiDummy.transform.position,
+                tornadoMidPos.position) < 0.025f)
+            {
+                tornadoToMidDest = false;
+                tornadoToFinalDest = true;
+            }
+            // 목표지점까지 이동 (중간지점)
             tornado.transform.position = Vector3.Slerp(
                 tornado.transform.position,
-                mainAi.wayPointBox[4].transform.position,
+                tornadoMidPos.position,
                 tornadoSpeed);
-            // 도착하면
+        }
+        else if (tornadoToFinalDest)
+        {
+            // 도착하면 (최종지점)
             if (Vector3.Distance(torAiDummy.transform.position,
                 mainAi.wayPointBox[4].transform.position) < 0.025f)
             {
@@ -93,7 +107,14 @@ public class ObjActivity : MonoBehaviour
                 // 원래 AI는 위치 변경
                 ai.transform.position = mainAi.wayPointBox[4].transform.position;
                 ai.SetActive(true);
+
+                tornadoToFinalDest = false;
             }
+            // 목표지점까지 이동 (최종지점)
+            tornado.transform.position = Vector3.Slerp(
+                tornado.transform.position,
+                mainAi.wayPointBox[4].transform.position,
+                tornadoSpeed);
         }
 
         if (Vector3.Distance(ai.transform.position,
