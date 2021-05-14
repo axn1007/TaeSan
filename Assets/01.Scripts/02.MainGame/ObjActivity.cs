@@ -8,6 +8,9 @@ public class ObjActivity : MonoBehaviour
     public GameObject balloon;
     public GameObject torAiDummy;
     public GameObject ballAiDummy;
+    public GameObject branch;
+    public GameObject bush;
+    bool bushGrow;
     public Transform balloonOriginPos;
     public Transform balloonDestPos;
     public Transform overbridgeOriginPos;
@@ -46,14 +49,25 @@ public class ObjActivity : MonoBehaviour
                 tornado.SetActive(true);
                 // AIDummy 활성화
                 torAiDummy.SetActive(true);
-                
+
                 mainAi.state = MainAI.AIState.Run;
                 mainAi.wpIndex++;
                 Destroy(rayManager.hits[0].transform.gameObject);
                 Destroy(rayManager.hits[1].transform.gameObject);
-                
+
                 // AI 비활성화
                 ai.SetActive(false);
+            }
+
+            if (rayManager.hits[0].transform.CompareTag("BushBtn") &&
+            rayManager.hits[1].transform.CompareTag("BushBtn") &&
+            mainAi.wpIndex == 6 && mainAi.state == MainAI.AIState.Idle)
+            {
+                bushGrow = true;
+                mainAi.state = MainAI.AIState.Run;
+                mainAi.wpIndex++;
+                Destroy(rayManager.hits[0].transform.gameObject);
+                Destroy(rayManager.hits[1].transform.gameObject);
             }
         }
 
@@ -93,6 +107,18 @@ public class ObjActivity : MonoBehaviour
                 ballAiDummy.SetActive(false);
                 ai.SetActive(true);
                 mainAi.state = MainAI.AIState.Run;
+            }
+        }
+
+        if (bushGrow)
+        {
+            if (transform.localScale.x <= 1 && transform.localScale.y <= 1 && transform.localScale.z <= 1)
+            {
+                transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
+            }
+            if (transform.localScale.x >= 0.1f && transform.localScale.y >= 0.1f && transform.localScale.z >= 0.1f)
+            {
+                transform.localScale -= new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
             }
         }
     }
