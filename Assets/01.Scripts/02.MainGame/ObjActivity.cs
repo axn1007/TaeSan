@@ -118,13 +118,13 @@ public class ObjActivity : MonoBehaviour
                 bush.transform.localScale.y <= 1 &&
                 bush.transform.localScale.z <= 1)
             {
-                transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
+                bush.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f) * Time.deltaTime;
             }
             if (branch.transform.localScale.x >= 0.1f &&
                 branch.transform.localScale.y >= 0.1f &&
                 branch.transform.localScale.z >= 0.1f)
             {
-                transform.localScale -= new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
+                branch.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f) * Time.deltaTime;
             }
         }
     }
