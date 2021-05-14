@@ -38,6 +38,8 @@ public class ObjActivity : MonoBehaviour
 
     void Update()
     {
+        print(bushGrow);
+
         // 만약에 Ray가 통과되면 활성화
         if (rayManager.hits.Length == 2)
         {
@@ -112,11 +114,15 @@ public class ObjActivity : MonoBehaviour
 
         if (bushGrow)
         {
-            if (transform.localScale.x <= 1 && transform.localScale.y <= 1 && transform.localScale.z <= 1)
+            if (bush.transform.localScale.x <= 1 &&
+                bush.transform.localScale.y <= 1 &&
+                bush.transform.localScale.z <= 1)
             {
                 transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
             }
-            if (transform.localScale.x >= 0.1f && transform.localScale.y >= 0.1f && transform.localScale.z >= 0.1f)
+            if (branch.transform.localScale.x >= 0.1f &&
+                branch.transform.localScale.y >= 0.1f &&
+                branch.transform.localScale.z >= 0.1f)
             {
                 transform.localScale -= new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
             }
