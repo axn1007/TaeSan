@@ -593,7 +593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000021398067, y: 239.29707}
+  m_AnchoredPosition: {x: 0.000021398067, y: 116.99999}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &568076949
@@ -1147,8 +1147,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1600208205}
   m_HandleRect: {fileID: 1600208204}
   m_Direction: 2
-  m_Value: -1.045274
-  m_Size: 0
+  m_Value: 0
+  m_Size: 0.6099937
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2877,6 +2877,7 @@ GameObject:
   - component: {fileID: 2119256952}
   - component: {fileID: 2119256951}
   - component: {fileID: 2119256953}
+  - component: {fileID: 2119256954}
   m_Layer: 5
   m_Name: ClearTime
   m_TagString: Untagged
@@ -2960,6 +2961,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &2119256954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119256949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3101b3d309fc08142bb25800a75c5c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2131536064
 GameObject:
   m_ObjectHideFlags: 0
