@@ -55,16 +55,18 @@ public class WayPointPasser : MonoBehaviour
                 // AIDummy 활성화
                 objAct.torAiDummy.SetActive(true);
                 // AI 비활성화
-                ai.SetActive(false);
-                mainAi.state = MainAI.AIState.Run;
                 mainAi.anim.SetTrigger("Run");
+                mainAi.state = MainAI.AIState.Run;
+                ai.SetActive(false);
             }
             
             else if (mainAi.state == MainAI.AIState.Idle && ai.activeSelf == true)
             {
+                mainAi.leave.SetActive(true);
+                mainAi.smoke.SetActive(true);
                 mainAi.wpIndex++;
-                mainAi.state = MainAI.AIState.Run;
                 mainAi.anim.SetTrigger("Run");
+                mainAi.state = MainAI.AIState.Run;
             }
         }
     }

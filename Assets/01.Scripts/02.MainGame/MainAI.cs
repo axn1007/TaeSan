@@ -66,10 +66,10 @@ public class MainAI : MonoBehaviour
         if (dist < 1)
         {
             print("Access!!");
-            state = AIState.Idle;
-            anim.SetTrigger("Idle");
             leave.SetActive(false);
             smoke.SetActive(false);
+            anim.SetTrigger("Idle");
+            state = AIState.Idle;
         }
     }
 
@@ -81,10 +81,10 @@ public class MainAI : MonoBehaviour
             if (rayManager.hits[0].transform.gameObject == rayTarget[wpIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTarget[wpIndex].gameObject)
             {
-                state = AIState.Run;
-                anim.SetTrigger("Run");
                 leave.SetActive(true);
                 smoke.SetActive(true);
+                state = AIState.Run;
+                anim.SetTrigger("Run");
                 Destroy(rayManager.hits[0].transform.gameObject);
                 Destroy(rayManager.hits[1].transform.gameObject);
                 if (wpIndex < wayPointBox.Length - 1) wpIndex++;
