@@ -78405,6 +78405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1482538478}
+  stageClearDummy: {fileID: 485307096}
 --- !u!114 &1482538478
 MonoBehaviour:
   m_ObjectHideFlags: 0
