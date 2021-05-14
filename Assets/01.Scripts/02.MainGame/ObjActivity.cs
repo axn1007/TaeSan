@@ -85,7 +85,7 @@ public class ObjActivity : MonoBehaviour
                 tornadoSpeed);
             // 도착하면
             if (Vector3.Distance(torAiDummy.transform.position,
-                mainAi.wayPointBox[4].transform.position) < 1)
+                mainAi.wayPointBox[4].transform.position) < 0.025f)
             {
                 // 둘 다 비활성
                 tornado.SetActive(false);
@@ -97,7 +97,7 @@ public class ObjActivity : MonoBehaviour
         }
 
         if (Vector3.Distance(ai.transform.position,
-            balloonOriginPos.position) < 1)
+            balloonOriginPos.position) < 0.025f)
         {
             ballAiDummy.SetActive(true);
             ai.SetActive(false);
@@ -105,7 +105,7 @@ public class ObjActivity : MonoBehaviour
                 Vector3.Distance(balloon.transform.position, balloonDestPos.position);
             balloon.transform.position =
                 Vector3.Slerp(balloon.transform.position, balloonDestPos.position, balloonSpeed);
-            if (balloonDist < 1 && ballAiDummy.activeSelf == true)
+            if (balloonDist < 0.025f && ballAiDummy.activeSelf == true)
             {
                 mainAi.wayPointBox[5].transform.position = overbridgeOriginPos.position;
                 ai.transform.position = balloon.transform.position;
@@ -118,7 +118,7 @@ public class ObjActivity : MonoBehaviour
 
         if (balloonToMidDest)
         {
-            if (Vector3.Distance(balloon.transform.position, balloonMidPos.position) < 1)
+            if (Vector3.Distance(balloon.transform.position, balloonMidPos.position) < 0.025f)
             {
                 balloonToMidDest = false;
                 balloonToFinalDest = true;

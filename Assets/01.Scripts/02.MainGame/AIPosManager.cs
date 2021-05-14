@@ -77,7 +77,7 @@ public class AIPosManager : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(moveDummy.transform.position, moveDestPos.position) < 1 &&
+        if (Vector3.Distance(moveDummy.transform.position, moveDestPos.position) < 0.025f &&
             moveDummy.activeSelf == true)
         {
             ai.transform.position = moveDestPos.position;
@@ -86,7 +86,7 @@ public class AIPosManager : MonoBehaviour
         }
 
         if (Vector3.Distance(ai.transform.position,
-            mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position) < 1)
+            mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position) < 0.025f)
         {
             stageClearDummy.SetActive(true);
             ai.SetActive(false);

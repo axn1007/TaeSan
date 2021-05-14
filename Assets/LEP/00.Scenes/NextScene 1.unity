@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.001
     agentHeight: 0.025
     agentSlope: 60
-    agentClimb: 0.1
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 0.00005
@@ -82755,9 +82755,9 @@ MonoBehaviour:
   - {fileID: 1028570005}
   - {fileID: 1092049372}
   - {fileID: 631029747}
-  moveDummy: {fileID: 2051904448}
-  stageClearDummy: {fileID: 485307096}
-  moveDestPos: {fileID: 247070480}
+  moveDummy: {fileID: 0}
+  stageClearDummy: {fileID: 0}
+  moveDestPos: {fileID: 0}
   overbridgeDestPos: {fileID: 674791667}
   posIndex: 0
 --- !u!4 &1724153710
@@ -108068,11 +108068,11 @@ MonoBehaviour:
   balloon: {fileID: 1129743344}
   torAiDummy: {fileID: 531414794}
   ballAiDummy: {fileID: 21236505}
-  branch: {fileID: 755323090}
-  bush: {fileID: 802598902}
+  branch: {fileID: 0}
+  bush: {fileID: 0}
   balloonOriginPos: {fileID: 1152222232}
   balloonDestPos: {fileID: 805770148}
-  balloonMidPos: {fileID: 154941706}
+  balloonMidPos: {fileID: 0}
   overbridgeOriginPos: {fileID: 1075118945}
   overbridgeDestPos: {fileID: 674791667}
   tornadoSpeed: 0.003
