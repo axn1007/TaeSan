@@ -63,7 +63,7 @@ public class MainAI : MonoBehaviour
         float dist = Vector3.Distance(
             transform.position, wayPointBox[wpIndex].transform.position);
         // 만약 목표지점과 가까워지면
-        if (dist < 1)
+        if (dist < 0.025f)
         {
             print("Access!!");
             state = AIState.Idle;

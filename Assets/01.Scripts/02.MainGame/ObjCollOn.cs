@@ -20,7 +20,7 @@ public class ObjCollOn : MonoBehaviour
             ai.transform.position,
             mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
 
-        if(dist < 1)
+        if(dist < 0.025f)
         {
             GetComponent<MeshCollider>().enabled = true;
         }

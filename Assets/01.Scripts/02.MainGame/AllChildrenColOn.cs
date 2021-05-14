@@ -47,7 +47,7 @@ public class AllChildrenColOn : MonoBehaviour
             ai.transform.position,
             mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
 
-        if (dist < 1)
+        if (dist < 0.025f)
         {
             foreach (BoxCollider child in allBoxColChildren)
             {

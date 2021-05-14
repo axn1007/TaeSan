@@ -18,7 +18,7 @@ public class ClearTreeE : MonoBehaviour
         float dist = Vector3.Distance(ai.transform.position, mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
 
             
-        if(dist < 1)
+        if(dist < 0.025f)
         {
             if (transform.localScale.x <= 2 && transform.localScale.y <= 2 && transform.localScale.z <= 2)
             {
