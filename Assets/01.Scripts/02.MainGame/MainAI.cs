@@ -63,13 +63,13 @@ public class MainAI : MonoBehaviour
         float dist = Vector3.Distance(
             transform.position, wayPointBox[wpIndex].transform.position);
         // 만약 목표지점과 가까워지면
-        if (dist < 1)
+        if (dist < 0.025f)
         {
             print("Access!!");
-            state = AIState.Idle;
-            anim.SetTrigger("Idle");
             leave.SetActive(false);
             smoke.SetActive(false);
+            anim.SetTrigger("Idle");
+            state = AIState.Idle;
         }
     }
 
@@ -81,13 +81,13 @@ public class MainAI : MonoBehaviour
             if (rayManager.hits[0].transform.gameObject == rayTarget[wpIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTarget[wpIndex].gameObject)
             {
-                if (wpIndex < wayPointBox.Length - 1) wpIndex++;
-                state = AIState.Run;
-                anim.SetTrigger("Run");
                 leave.SetActive(true);
                 smoke.SetActive(true);
+                anim.SetTrigger("Run");
+                state = AIState.Run;
                 Destroy(rayManager.hits[0].transform.gameObject);
                 Destroy(rayManager.hits[1].transform.gameObject);
+                if (wpIndex < wayPointBox.Length - 1) wpIndex++;
             }
         }
     }
