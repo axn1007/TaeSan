@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MainAI : MonoBehaviour
 {
-    ArrowActivity arrowAct;
+    //ArrowActivity arrowAct;
 
     public GameObject[] rayTarget;
     public GameObject[] wayPointBox;
@@ -31,7 +31,7 @@ public class MainAI : MonoBehaviour
 
     void Start()
     {
-        arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
+        //arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
         // RayManager 스크립트 가져오기
         rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
         // Run 상태로 시작
@@ -90,7 +90,7 @@ public class MainAI : MonoBehaviour
                 state = AIState.Run;
                 Destroy(rayManager.hits[0].transform.gameObject);
                 Destroy(rayManager.hits[1].transform.gameObject);
-                arrowAct.arrows[wpIndex].gameObject.SetActive(false);
+                //arrowAct.arrows[wpIndex].gameObject.SetActive(false);
                 if (wpIndex < wayPointBox.Length - 1) wpIndex++;
             }
         }
