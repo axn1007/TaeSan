@@ -45,6 +45,7 @@ public class WayPointPasser : MonoBehaviour
                     ai.SetActive(true);
                     mainAi.leave.SetActive(true);
                     mainAi.smoke.SetActive(true);
+                    arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
                     mainAi.wpIndex++;
                     mainAi.state = MainAI.AIState.Run;
                     aiPosMng.aiPoss[aiPosMng.aiPoss.Length - 1].SetActive(false);
@@ -55,6 +56,7 @@ public class WayPointPasser : MonoBehaviour
             {
                 mainAi.leave.SetActive(true);
                 mainAi.smoke.SetActive(true);
+                arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
                 mainAi.wpIndex++;
                 // 토네이도 활성화
                 objAct.tornado.SetActive(true);

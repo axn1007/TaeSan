@@ -26,9 +26,11 @@ public class ObjActivity : MonoBehaviour
     RayManager rayManager;
     GameObject ai;
     MainAI mainAi;
+    ArrowActivity arrowAct;
 
     void Start()
     {
+        arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
         // 토네이도 비활성화
         tornado.SetActive(false);
         // AIDummy 비활성화
@@ -59,6 +61,7 @@ public class ObjActivity : MonoBehaviour
                 torAiDummy.SetActive(true);
 
                 mainAi.state = MainAI.AIState.Run;
+                arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
                 mainAi.wpIndex++;
                 Destroy(rayManager.hits[0].transform.gameObject);
                 Destroy(rayManager.hits[1].transform.gameObject);
