@@ -5,32 +5,39 @@ using UnityEngine.AI;
 
 public class AIMove : MonoBehaviour
 {
+    ArrowActivity arrowAct;
+
+    public GameObject[] rayTarget;
     public GameObject[] wayPointBox;
-    public NavMeshAgent navi;
-    public int wpIndex;
-    RayManager rayManager;
 
     // Player Effect
     public GameObject leave;
     public GameObject smoke;
 
-    enum AIState
+    RayManager rayManager;
+
+    [HideInInspector]
+    public NavMeshAgent navi;
+    public int wpIndex;
+
+    public enum AIState
     {
         Run,
         Idle,
     }
 
-    AIState state;
-    Animator anim;
+    public AIState state;
+    public Animator anim;
 
     void Start()
     {
+        //arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
         // RayManager 스크립트 가져오기
         rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
         // Run 상태로 시작
         state = AIState.Run;
         // Animator 셋팅
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<Animator>();
         // Navigation 셋팅
         navi = GetComponent<NavMeshAgent>();
     }
@@ -62,10 +69,10 @@ public class AIMove : MonoBehaviour
         if (dist < 0.025f)
         {
             print("Access!!");
-            state = AIState.Idle;
-            anim.SetTrigger("Idle");
             leave.SetActive(false);
             smoke.SetActive(false);
+            anim.SetTrigger("Idle");
+            state = AIState.Idle;
         }
     }
 
@@ -74,12 +81,18 @@ public class AIMove : MonoBehaviour
         print("Stop!!");
         if (rayManager.hits.Length == 2)
         {
-            if (wpIndex < wayPointBox.Length - 1) wpIndex++;
-            state = AIState.Run;
-            anim.SetTrigger("Run");
-            leave.SetActive(true);
-            smoke.SetActive(true);
-            Destroy(rayManager.hits[0].transform.gameObject);
+            if (rayManager.hits[0].transform.gameObject == rayTarget[wpIndex].gameObject ||
+                rayManager.hits[1].transform.gameObject == rayTarget[wpIndex].gameObject)
+            {
+                leave.SetActive(true);
+                smoke.SetActive(true);
+                anim.SetTrigger("Run");
+                state = AIState.Run;
+                Destroy(rayManager.hits[0].transform.gameObject);
+                Destroy(rayManager.hits[1].transform.gameObject);
+                //arrowAct.arrows[wpIndex].gameObject.SetActive(false);
+                if (wpIndex < wayPointBox.Length - 1) wpIndex++;
+            }
         }
     }
 }

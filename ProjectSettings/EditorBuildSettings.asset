@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/LEP/00.Scenes/TitleScene.unity
+    guid: 36900046bc45a924c9faba2a8af96d99
+  - enabled: 1
+    path: Assets/LEP/00.Scenes/GameScene_beta.unity
+    guid: 212ecedcfe5601242a038c2766a7b1a6
+  - enabled: 1
     path: Assets/LEP/00.Scenes/NextScene_beta.unity
     guid: 0ce9649eed3c0854fa9bb08fb64289f0
   m_configObjects:
