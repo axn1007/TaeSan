@@ -20,7 +20,7 @@ public class TitleText : MonoBehaviour
         if (standby == true && alpha <= 1.0f)
         {
             alpha += 0.5f * Time.deltaTime;
-            titleText.color = new Color(0.0f, 0.0f, 0.0f, alpha);
+            titleText.color = new Color(0.0f, 1.0f, 0.0f, alpha);
             if (alpha >= 1) titleUI.standby = true;
         }
     }
