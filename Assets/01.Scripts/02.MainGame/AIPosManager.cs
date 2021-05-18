@@ -10,8 +10,10 @@ public class AIPosManager : MonoBehaviour
     public GameObject stageClearDummy;
     public Transform moveDestPos;
     public Transform overbridgeDestPos;
+    public float balloonFinalSpd;
     bool balloonFinalEsc;
     ObjActivity objAct;
+    AudioSource eftSound;
     RayManager rayManager;
     //GameObject ringMove;
     GameObject ai;
@@ -19,6 +21,8 @@ public class AIPosManager : MonoBehaviour
     MainAI mainAi;
     void Start()
     {
+        eftSound = GameObject.Find("EftSound").GetComponent<AudioSource>();
+
         objAct = GameObject.Find("ObjActivity").GetComponent<ObjActivity>();
 
         ai = GameObject.Find("AI");
@@ -49,6 +53,7 @@ public class AIPosManager : MonoBehaviour
         {
             if (mainAi.wpIndex == 2 && mainAi.state == MainAI.AIState.Run)
             {
+                eftSound.Play();
                 moveDummy.SetActive(true);
                 ai.SetActive(false);
             }
@@ -56,6 +61,7 @@ public class AIPosManager : MonoBehaviour
             if (rayManager.hits[0].transform.gameObject == rayTargets[posIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTargets[posIndex].gameObject)
             {
+                eftSound.Play();
                 if (posIndex == 0) ai.SetActive(false);
 
                 if (posIndex < aiPoss.Length - 1)
@@ -70,6 +76,8 @@ public class AIPosManager : MonoBehaviour
                 {
                     ai.transform.position = overbridgeDestPos.position;
                     ai.SetActive(true);
+                    mainAi.leave.SetActive(true);
+                    mainAi.smoke.SetActive(true);
                     mainAi.wpIndex++;
                     mainAi.state = MainAI.AIState.Run;
                     aiPoss[aiPoss.Length - 1].SetActive(false);
@@ -77,7 +85,7 @@ public class AIPosManager : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(moveDummy.transform.position, moveDestPos.position) < 1 &&
+        if (Vector3.Distance(moveDummy.transform.position, moveDestPos.position) < 0.025f &&
             moveDummy.activeSelf == true)
         {
             ai.transform.position = moveDestPos.position;
@@ -86,7 +94,7 @@ public class AIPosManager : MonoBehaviour
         }
 
         if (Vector3.Distance(ai.transform.position,
-            mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position) < 1)
+            mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position) < 0.025f)
         {
             stageClearDummy.SetActive(true);
             ai.SetActive(false);
@@ -97,7 +105,7 @@ public class AIPosManager : MonoBehaviour
         if (balloonFinalEsc)
         {
             objAct.balloon.transform.position +=
-                Vector3.up * 10 * Time.deltaTime;
+                Vector3.up * balloonFinalSpd * Time.deltaTime;
         }
     }
 }

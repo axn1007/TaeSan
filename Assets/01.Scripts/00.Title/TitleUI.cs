@@ -48,7 +48,7 @@ public class TitleUI : MonoBehaviour
 
     public void OnClickStart()
     {
-        //SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
     }
 
     public void OnClickTut()

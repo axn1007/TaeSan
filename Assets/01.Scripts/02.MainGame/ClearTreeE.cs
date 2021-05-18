@@ -15,12 +15,14 @@ public class ClearTreeE : MonoBehaviour
 
     void Update()
     {
-        float dist = Vector3.Distance(ai.transform.position, mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
-
+        float dist = Vector3.Distance(ai.transform.position,
+            mainAi.wayPointBox[mainAi.wayPointBox.Length - 1].transform.position);
             
-        if(dist < 1)
+        if(dist < 0.025f)
         {
-            if (transform.localScale.x <= 2 && transform.localScale.y <= 2 && transform.localScale.z <= 2)
+            if (transform.localScale.x <= 2 &&
+                transform.localScale.y <= 2 &&
+                transform.localScale.z <= 2)
             {
                 transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
             }

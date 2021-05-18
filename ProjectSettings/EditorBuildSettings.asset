@@ -6,15 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KSY/00.Scenes/TitleScene.unity
-    guid: 762b589f2ffc9c9488887f8e25e222aa
+    path: Assets/LEP/00.Scenes/TitleScene.unity
+    guid: 36900046bc45a924c9faba2a8af96d99
   - enabled: 1
-    path: Assets/KSY/00.Scenes/GameScene.unity
-    guid: 3ebc794b869b6d545a9708ba9807e084
+    path: Assets/LEP/00.Scenes/GameScene_beta.unity
+    guid: 212ecedcfe5601242a038c2766a7b1a6
   - enabled: 1
-    path: Assets/KSY/00.Scenes/NextScene.unity
-    guid: bf8c5dea76594f24eaf303912538e96a
-  - enabled: 1
-    path: Assets/KSY/00.Scenes/ClearScene.unity
-    guid: 129ca1548b49b7941a22ba09a3823346
-  m_configObjects: {}
+    path: Assets/LEP/00.Scenes/NextScene_beta.unity
+    guid: 0ce9649eed3c0854fa9bb08fb64289f0
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: ea60d10f4ad80554ab2af635022200cd, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 910b47e25266dfd4fa1da6d722e34a13, type: 2}
