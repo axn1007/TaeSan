@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour
         timerText.text = string.Format("Time : {0:00}:{1:00}:{2:00}", hour, min, sec);
 
         TimerStop();
-        SaveTime();
+        
     }
 
    
@@ -53,12 +53,15 @@ public class Timer : MonoBehaviour
         {
             //타이머 멈추기
             GetComponent<Timer>().enabled = false;
+            SaveTime();
         }
+        
     }
 
     public void SaveTime()
     {
-        PlayerPrefs.SetFloat("TimerStop", time);
+        PlayerPrefs.SetString("TimerStop", timerText.text);
+        print(PlayerPrefs.GetString("TimeStop"));
     }
 
 }
