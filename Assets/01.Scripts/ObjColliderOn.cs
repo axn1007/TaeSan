@@ -18,7 +18,7 @@ public class ObjColliderOn : MonoBehaviour
         float dist = Vector3.Distance(
             ai.transform.position,
             aiMove.wayPointBox[aiMove.wayPointBox.Length - 1].transform.position);
-        if (dist < 1)
+        if (dist < 0.025f)
         {
             GetComponent<MeshCollider>().enabled = true;
         }

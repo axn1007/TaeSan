@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class MainAI : MonoBehaviour
 {
+    AudioSource eftSound;
+
+    ArrowActivity arrowAct;
+
     public GameObject[] rayTarget;
     public GameObject[] wayPointBox;
 
@@ -29,6 +33,9 @@ public class MainAI : MonoBehaviour
 
     void Start()
     {
+        eftSound = GameObject.Find("EftSound").GetComponent<AudioSource>();
+
+        arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
         // RayManager 스크립트 가져오기
         rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
         // Run 상태로 시작
@@ -63,13 +70,13 @@ public class MainAI : MonoBehaviour
         float dist = Vector3.Distance(
             transform.position, wayPointBox[wpIndex].transform.position);
         // 만약 목표지점과 가까워지면
-        if (dist < 1)
+        if (dist < 0.025f)
         {
             print("Access!!");
-            state = AIState.Idle;
-            anim.SetTrigger("Idle");
             leave.SetActive(false);
             smoke.SetActive(false);
+            anim.SetTrigger("Idle");
+            state = AIState.Idle;
         }
     }
 
@@ -81,12 +88,14 @@ public class MainAI : MonoBehaviour
             if (rayManager.hits[0].transform.gameObject == rayTarget[wpIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTarget[wpIndex].gameObject)
             {
-                state = AIState.Run;
-                anim.SetTrigger("Run");
+                eftSound.Play();
                 leave.SetActive(true);
                 smoke.SetActive(true);
+                anim.SetTrigger("Run");
+                state = AIState.Run;
                 Destroy(rayManager.hits[0].transform.gameObject);
                 Destroy(rayManager.hits[1].transform.gameObject);
+                arrowAct.arrows[wpIndex].gameObject.SetActive(false);
                 if (wpIndex < wayPointBox.Length - 1) wpIndex++;
             }
         }
