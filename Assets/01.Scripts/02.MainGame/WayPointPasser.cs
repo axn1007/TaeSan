@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class WayPointPasser : MonoBehaviour
 {
+    ArrowActivity arrowAct;
     MainAI mainAi;
     GameObject ai;
     ObjActivity objAct;
     AIPosManager aiPosMng;
     void Start()
     {
+        arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
         ai = GameObject.Find("AI");
         mainAi = ai.GetComponent<MainAI>();
         objAct = GameObject.Find("ObjActivity").GetComponent<ObjActivity>();
@@ -43,6 +45,7 @@ public class WayPointPasser : MonoBehaviour
                     ai.SetActive(true);
                     mainAi.leave.SetActive(true);
                     mainAi.smoke.SetActive(true);
+                    arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
                     mainAi.wpIndex++;
                     mainAi.state = MainAI.AIState.Run;
                     aiPosMng.aiPoss[aiPosMng.aiPoss.Length - 1].SetActive(false);
@@ -53,6 +56,7 @@ public class WayPointPasser : MonoBehaviour
             {
                 mainAi.leave.SetActive(true);
                 mainAi.smoke.SetActive(true);
+                arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
                 mainAi.wpIndex++;
                 // 토네이도 활성화
                 objAct.tornado.SetActive(true);
@@ -69,6 +73,7 @@ public class WayPointPasser : MonoBehaviour
             {
                 mainAi.leave.SetActive(true);
                 mainAi.smoke.SetActive(true);
+                arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
                 mainAi.wpIndex++;
                 mainAi.anim.SetTrigger("Run");
                 mainAi.state = MainAI.AIState.Run;
