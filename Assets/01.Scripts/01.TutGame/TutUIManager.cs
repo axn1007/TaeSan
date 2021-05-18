@@ -15,18 +15,12 @@ public class TutUIManager : MonoBehaviour
         clear = GameObject.Find("Clear");
         clear.SetActive(false);
         help = GameObject.Find("Help");
-        Invoke("HelpMessageOff", 5);
     }
 
     void Update()
     {
         if (clearTreeEft.transform.localScale.x >= 2)
             clear.SetActive(true);
-    }
-
-    void HelpMessageOff()
-    {
-        help.SetActive(false);
     }
 
     public void OnClickGoMain()
@@ -37,5 +31,10 @@ public class TutUIManager : MonoBehaviour
     public void OnClickGoTitle()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void OnClickHelpOff()
+    {
+        help.SetActive(false);
     }
 }
