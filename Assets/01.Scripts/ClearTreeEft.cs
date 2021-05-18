@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class ClearTreeEft : MonoBehaviour
 {
-    GameObject clear;
     GameObject ai;
     AIMove aiMove;
     void Start()
     {
-        clear = GameObject.Find("Clear");
-        clear.SetActive(false);
         ai = GameObject.Find("AI");
         aiMove = ai.GetComponent<AIMove>();
     }
@@ -30,7 +27,5 @@ public class ClearTreeEft : MonoBehaviour
                 transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime;
             }
         }
-
-        if (transform.localScale.x >= 2) clear.SetActive(true);
     }
 }
