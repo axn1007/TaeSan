@@ -23,6 +23,7 @@ public class ObjActivity : MonoBehaviour
     public Transform overbridgeDestPos;
     public float tornadoSpeed;
     public float balloonSpeed;
+    AudioSource eftSound;
     RayManager rayManager;
     GameObject ai;
     MainAI mainAi;
@@ -30,6 +31,8 @@ public class ObjActivity : MonoBehaviour
 
     void Start()
     {
+        eftSound = GameObject.Find("EftSound").GetComponent<AudioSource>();
+
         arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
         // 토네이도 비활성화
         tornado.SetActive(false);
@@ -55,6 +58,7 @@ public class ObjActivity : MonoBehaviour
             rayManager.hits[1].transform.CompareTag("TornadoBtn") &&
             mainAi.wpIndex == 3 && mainAi.state == MainAI.AIState.Idle)
             {
+                eftSound.Play();
                 // 토네이도 활성화
                 tornado.SetActive(true);
                 // AIDummy 활성화
@@ -75,6 +79,7 @@ public class ObjActivity : MonoBehaviour
             rayManager.hits[1].transform.CompareTag("BushBtn") &&
             mainAi.wpIndex == 6 && mainAi.state == MainAI.AIState.Idle)
             {
+                eftSound.Play();
                 bushGrow = true;
                 //mainAi.state = MainAI.AIState.Run;
                 //mainAi.wpIndex++;
