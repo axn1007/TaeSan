@@ -24,7 +24,7 @@ public class RoomInfoBtn : MonoBehaviour
     public void SetInfo(string userName, string clearTime)
     {
         name = userName;
-        info.text = "이름" + "  " + ":" + userName + " " + "=>" + "  "+"Clear" +" "+ clearTime;
+        info.text = "이름" + "  " + ":" + " " + userName + " " + "=>" + "  "+"Clear" +" "+ clearTime;
     }
 
     public void OnClick()
