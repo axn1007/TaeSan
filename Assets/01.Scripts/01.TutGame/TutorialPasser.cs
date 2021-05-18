@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TutorialPasser : MonoBehaviour
 {
-    //ArrowActivity arrowAct;
+    TutArrowActivity arrowAct;
     AIMove aiMove;
     GameObject ai;
     void Start()
     {
-        //arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
+        arrowAct = GameObject.Find("ArrowActivity").GetComponent<TutArrowActivity>();
         ai = GameObject.Find("AI");
         aiMove = ai.GetComponent<AIMove>();
     }
@@ -22,7 +22,7 @@ public class TutorialPasser : MonoBehaviour
             {
                 aiMove.leave.SetActive(true);
                 aiMove.smoke.SetActive(true);
-                //arrowAct.arrows[aiMove.wpIndex].gameObject.SetActive(false);
+                arrowAct.arrows[aiMove.wpIndex].gameObject.SetActive(false);
                 aiMove.wpIndex++;
                 aiMove.anim.SetTrigger("Run");
                 aiMove.state = AIMove.AIState.Run;
