@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/KSY/00.Scenes/TitleScene.unity
+    guid: 762b589f2ffc9c9488887f8e25e222aa
+  - enabled: 1
+    path: Assets/KSY/00.Scenes/GameScene.unity
+    guid: 3ebc794b869b6d545a9708ba9807e084
+  - enabled: 1
     path: Assets/KSY/00.Scenes/NextScene.unity
     guid: bf8c5dea76594f24eaf303912538e96a
   - enabled: 1
