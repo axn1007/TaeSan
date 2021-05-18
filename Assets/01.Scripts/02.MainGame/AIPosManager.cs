@@ -13,6 +13,7 @@ public class AIPosManager : MonoBehaviour
     public float balloonFinalSpd;
     bool balloonFinalEsc;
     ObjActivity objAct;
+    AudioSource eftSound;
     RayManager rayManager;
     //GameObject ringMove;
     GameObject ai;
@@ -20,6 +21,8 @@ public class AIPosManager : MonoBehaviour
     MainAI mainAi;
     void Start()
     {
+        eftSound = GameObject.Find("EftSound").GetComponent<AudioSource>();
+
         objAct = GameObject.Find("ObjActivity").GetComponent<ObjActivity>();
 
         ai = GameObject.Find("AI");
@@ -50,6 +53,7 @@ public class AIPosManager : MonoBehaviour
         {
             if (mainAi.wpIndex == 2 && mainAi.state == MainAI.AIState.Run)
             {
+                eftSound.Play();
                 moveDummy.SetActive(true);
                 ai.SetActive(false);
             }
@@ -57,6 +61,7 @@ public class AIPosManager : MonoBehaviour
             if (rayManager.hits[0].transform.gameObject == rayTargets[posIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTargets[posIndex].gameObject)
             {
+                eftSound.Play();
                 if (posIndex == 0) ai.SetActive(false);
 
                 if (posIndex < aiPoss.Length - 1)

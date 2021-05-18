@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class AIMove : MonoBehaviour
 {
+    AudioSource eftSound;
+
     TutArrowActivity arrowAct;
 
     public GameObject[] rayTarget;
@@ -31,6 +33,8 @@ public class AIMove : MonoBehaviour
 
     void Start()
     {
+        eftSound = GameObject.Find("EftSound").GetComponent<AudioSource>();
+
         arrowAct = GameObject.Find("ArrowActivity").GetComponent<TutArrowActivity>();
         // RayManager 스크립트 가져오기
         rayManager = GameObject.Find("RayManager").GetComponent<RayManager>();
@@ -84,6 +88,7 @@ public class AIMove : MonoBehaviour
             if (rayManager.hits[0].transform.gameObject == rayTarget[wpIndex].gameObject ||
                 rayManager.hits[1].transform.gameObject == rayTarget[wpIndex].gameObject)
             {
+                eftSound.Play();
                 leave.SetActive(true);
                 smoke.SetActive(true);
                 anim.SetTrigger("Run");

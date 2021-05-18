@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WayPointPasser : MonoBehaviour
 {
+    AudioSource eftSound;
     ArrowActivity arrowAct;
     MainAI mainAi;
     GameObject ai;
@@ -11,6 +12,7 @@ public class WayPointPasser : MonoBehaviour
     AIPosManager aiPosMng;
     void Start()
     {
+        eftSound = GameObject.Find("EftSound").GetComponent<AudioSource>();
         arrowAct = GameObject.Find("ArrowActivity").GetComponent<ArrowActivity>();
         ai = GameObject.Find("AI");
         mainAi = ai.GetComponent<MainAI>();
@@ -26,6 +28,7 @@ public class WayPointPasser : MonoBehaviour
         {
             if (mainAi.wpIndex == 5 && mainAi.state == MainAI.AIState.Idle)
             {
+                eftSound.Play();
                 if (ai.activeSelf == true && aiPosMng.posIndex == 0)
                 {
                     ai.SetActive(false);
@@ -54,6 +57,7 @@ public class WayPointPasser : MonoBehaviour
 
             else if (mainAi.wpIndex == 3 && mainAi.state == MainAI.AIState.Idle && ai.activeSelf == true)
             {
+                eftSound.Play();
                 mainAi.leave.SetActive(true);
                 mainAi.smoke.SetActive(true);
                 arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
@@ -71,6 +75,7 @@ public class WayPointPasser : MonoBehaviour
 
             else if (mainAi.state == MainAI.AIState.Idle && ai.activeSelf == true)
             {
+                eftSound.Play();
                 mainAi.leave.SetActive(true);
                 mainAi.smoke.SetActive(true);
                 arrowAct.arrows[mainAi.wpIndex].gameObject.SetActive(false);
