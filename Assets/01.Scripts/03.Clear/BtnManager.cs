@@ -1,12 +1,9 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine.UI;
 
-public class BtnManager : MonoBehaviourPunCallbacks
+public class BtnManager : MonoBehaviour
 {
     //유저 이름
     public InputField nameInput;
@@ -31,5 +28,6 @@ public class BtnManager : MonoBehaviourPunCallbacks
             btn.SetInfo(nameInput.text, ct.text);
         }
     }
- }
+
+}
 
