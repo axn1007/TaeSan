@@ -399,9 +399,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4649492359973503778, guid: e6b5c6b1d3d8db54487a8e7811579ce1, type: 3}
+      propertyPath: startDelay.scalar
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4649492359973503779, guid: e6b5c6b1d3d8db54487a8e7811579ce1, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4649492359973503779, guid: e6b5c6b1d3d8db54487a8e7811579ce1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,9 +468,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cdb6a02f6938a9643b906861e79ee51e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5db572b95808176498c706f3f9b40e70, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1347,13 +1351,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 667311411594171664, guid: 48f6da4be53572d4d963a26e564f8dbd, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 667311411594171666, guid: 48f6da4be53572d4d963a26e564f8dbd, type: 3}
       propertyPath: m_Name
       value: ClearParticle
       objectReference: {fileID: 0}
     - target: {fileID: 667311411594171695, guid: 48f6da4be53572d4d963a26e564f8dbd, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 667311411594171695, guid: 48f6da4be53572d4d963a26e564f8dbd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1412,9 +1420,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5db572b95808176498c706f3f9b40e70, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cdb6a02f6938a9643b906861e79ee51e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3088,6 +3096,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubEmitter (1) 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5326294259662772094, guid: 5f06bc551f30da447a4e0940ff089604, type: 3}
+      propertyPath: startDelay.scalar
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326294259662772094, guid: 5f06bc551f30da447a4e0940ff089604, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f06bc551f30da447a4e0940ff089604, type: 3}
 --- !u!1 &1781007407 stripped
@@ -3105,11 +3121,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5ddcd5c46cd00eb43b8cc2d82feeb2e6, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3487,7 +3503,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4309701139710559652, guid: b4b1e10ec3ff7f84181edfb37355e4cb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4309701139710559652, guid: b4b1e10ec3ff7f84181edfb37355e4cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3529,6 +3545,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4309701139710559653, guid: b4b1e10ec3ff7f84181edfb37355e4cb, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309701139710559653, guid: b4b1e10ec3ff7f84181edfb37355e4cb, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 4309701139710559655, guid: b4b1e10ec3ff7f84181edfb37355e4cb, type: 3}
       propertyPath: m_Name
       value: ClearParticle (1)
@@ -3550,11 +3574,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fa651bb0738185247b3999b0b087ad98, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0b2290a6ce008ff45987a2bdb8e88c58, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3644,6 +3668,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3995762999363609228, guid: c6d74c770e0792348a95ee828e5bf9dd, type: 3}
+      propertyPath: startDelay.scalar
+      value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995762999363609228, guid: c6d74c770e0792348a95ee828e5bf9dd, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 100
       objectReference: {fileID: 0}
@@ -3720,11 +3748,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1d23838f5c4f08b438bbba61c4763848, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
